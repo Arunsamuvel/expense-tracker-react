@@ -14,15 +14,16 @@ const initialState = {
 // createContext
 export const GlobalContext = createContext(initialState);
 
-// provider component
+//provider component
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
+
+  // action
 
   return (
     <GlobalContext.Provider
       value={{
         transactions: state.transactions,
-        dispatch, // Pass the dispatch function here
       }}
     >
       {children}
